@@ -1,10 +1,11 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useFormik } from "formik";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from 'yup';
 
-export function UserRegister(){
+export function UserRegister(  ){
 
     let navigate = useNavigate();
 
@@ -29,6 +30,14 @@ export function UserRegister(){
         Mobile:yup.string().required('Mobile is required').matches(/\+91\d{10}/,'Invalid Password')
        })
     })
+    const [Mobile,setMobile] = useState('');
+    const handleSendOtp = () =>{
+        if(!/^[6-9]\d{9}$/.test(Mobile)){
+            alert('Invalid Mobile Number');
+            return;
+        }
+       
+    }
 
     return(
         <div className="bg-light p-4 m-4 w-25 rounded">
@@ -48,7 +57,8 @@ export function UserRegister(){
                     <dd><TextField type="email" label="Enter Your EMail" variant="standard" name="Email" onChange={formik.handleChange} className="form-control" /></dd>
                     <dd className="text-danger" > {formik.errors.Email} </dd>
                     <dt>Mobile</dt>
-                    <dd><TextField type="text" label="Enter Your Mobile" variant="standard" name="Mobile" onChange={formik.handleChange} className="form-control" /></dd>
+                    <dd><TextField type="text" label="Enter Your Mobile" variant="standard" name="Mobile" onChange={(e) => setMobile(e.target.value)}  className="form-control" /></dd>
+                        <Button className="btn btn-warning" onClick={handleSendOtp} >Send Otp</Button>
                     <dd className="text-danger" > {formik.errors.Mobile} </dd>
                 </dl>
                 <button className="btn btn-primary">Register</button>

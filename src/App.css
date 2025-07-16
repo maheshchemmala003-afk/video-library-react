@@ -1,9 +1,73 @@
+body, html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
 .video-banner{
   background-image: url('/public/video-banner.jpg');
-  height: 100vh;
+  height: 175vh;
   background-size: cover;
+  
 }
 .shade-banner{
   background-color: rgba(0, 0, 0, 0.7);
-  height: 100vh;
+  height: 175vh;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.animated-title {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  width: 0;
+  animation: typing 3s steps(20,end) forwards;
+  margin-left: 30%;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: none;
+  transition: background-color 0.6s ease;
+}
+
+.carousel-indicators .active {
+  background-color: #ff5733;
+  position: relative;
+}
+
+.carousel-indicators .active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 87, 51, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.3);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(1.8);
+      opacity: 0;
+  }
 }

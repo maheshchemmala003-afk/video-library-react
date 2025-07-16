@@ -12,13 +12,13 @@ import { UserRegister } from './components/user-register';
 import { UserDashBoard } from './components/user-dashboard';
 import { SavedVideos } from './components/saved-videos';
 
-
 function App() {
   return (
     <div className="video-banner">
       <div className='shade-banner'>
-        <h1 className='text-white text-center p-4 '>Technologies Video Library</h1>
-
+      <h1 className="animated-title text-center d-flex   p-2">
+         <span className='mx-3' style={{ color: "blue", fontStyle: "italic",fontWeight:"bold" }}> Technologies </span> <span style={{color: "gold", fontWeight: "bold",fontStyle:"italic" }}> Video Library</span>
+      </h1>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<VideoHome />} />
