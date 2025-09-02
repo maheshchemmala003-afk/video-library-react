@@ -16,9 +16,16 @@ function App() {
   return (
     <div className="video-banner">
       <div className='shade-banner'>
-      <h1 className="animated-title text-center d-flex   p-2">
-         <span className='mx-3' style={{ color: "blue", fontStyle: "italic",fontWeight:"bold" }}> Technologies </span> <span style={{color: "gold", fontWeight: "bold",fontStyle:"italic" }}> Video Library</span>
-      </h1>
+     
+  <div className="scroll-wrapper">
+  <div className="scroll-text">
+    <span className="tech">Technologies</span>
+    <span className="video">Video Library</span>
+  </div>
+</div>
+
+
+
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<VideoHome />} />

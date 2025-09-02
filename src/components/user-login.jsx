@@ -1,5 +1,5 @@
 import { Password } from "@mui/icons-material";
-import { TextField } from "@mui/material";
+import { TextField ,Button } from "@mui/material";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
@@ -44,9 +44,9 @@ export function UserLogin() {
     })
 
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <div className="bg-light p-3 w-25 rounded">
-                <h3 className="text-center bi bi-person-fill" >User Login</h3>
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh',padding: '1rem' }}>
+            <div className="bg-light p-4 w-100 shadow rounded" style={{ maxWidth: '400px' }}>
+                <h3 className="text-center bi bi-person-fill mb-3" >User Login</h3>
                 <form onSubmit={formik.handleSubmit}>
                     <dl>
                         <dt>User Id</dt>
@@ -56,7 +56,7 @@ export function UserLogin() {
                         <dd> <TextField variant="standard" type="password" label="Enter Your Password" name="Password" onChange={formik.handleChange} className="form-control" /> </dd>
                         <dd className="text-danger" > {formik.errors.Password} </dd>
                     </dl>
-                    <button type="submit" className="btn btn-warning w-100 mb-3"> Login </button>
+                    <Button variant="outlined" type="submit" className="btn btn-danger w-100 mb-3"> Login </Button>
                     <Link to='/user-register'>New User Register</Link>
                 </form>
             </div>

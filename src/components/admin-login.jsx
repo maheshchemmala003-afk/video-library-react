@@ -34,9 +34,9 @@ export function AdminLogin() {
         })
     })
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <div className="bg-light p-3 w-25 rounded">
-                <h3 className=" text-center bi bi-person-fill" >Admin Login</h3>
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh',padding: '1rem' }}>
+            <div className="bg-light p-4 w-100 rounded" style={{ maxWidth: '400px' }}>
+                <h3 className=" text-center bi bi-person-fill mb-3" > Admin Login</h3>
                 <form onSubmit={formik.handleSubmit}>
                     <dl>
                         <dt>Admin Id</dt>
@@ -46,7 +46,7 @@ export function AdminLogin() {
                         <dd> <TextField type="password" variant="standard" label="Enter Your Password" name="Password" onChange={formik.handleChange}  className="form-control" /> </dd>
                         <dd className="text-danger" > {formik.errors.Password} </dd>
                     </dl>
-                    <Button className="btn btn-warning w-100" type="submit" > Login </Button>
+                    <Button variant="outlined" className="btn btn-danger w-100" type="submit" > Login </Button>
                     <Link to="/" className="btn btn-link"> Back to Home </Link>
                 </form>
             </div>
