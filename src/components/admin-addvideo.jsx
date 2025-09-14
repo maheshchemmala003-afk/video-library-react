@@ -21,13 +21,13 @@ export function AdminAddVideo(){
             Comments:['']
         },
         onSubmit : (video)=>{
-            axios.post(`http://127.0.0.1:5000/add-video`,video)
+            axios.post(`https://video-library-react-4.onrender.com/add-video`,video)
                 alert("video Added successfully")
                 navigate('/admin-dash')
         }
     })
     function LoadCategories(){
-        axios.get(`http://127.0.0.1:5000/get-categories`)
+        axios.get(`https://video-library-react-4.onrender.com/get-categories`)
         .then(response=>{
             response.data.unshift({
                 CategoryId : -1,
