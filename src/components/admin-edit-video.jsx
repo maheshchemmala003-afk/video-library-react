@@ -23,7 +23,7 @@ export function AdminEditVideo(){
             CategoryId:videos[0].CategoryId
             },
         onSubmit:(values)=>{
-            axios.put(`http://127.0.0.1:5000/edit-video/${params.id}`,values)
+            axios.put(`https://video-library-react-4.onrender.com/edit-video/${params.id}`,values)
             alert('video Edited Successfully...');
             navigate('/admin-dash');
         },
@@ -31,7 +31,7 @@ export function AdminEditVideo(){
     });
 
     function LoadCategories(){
-        axios.get(`http://127.0.0.1:5000/get-categories`)
+        axios.get(`https://video-library-react-4.onrender.com/get-categories`)
         .then(response=>{
             response.data.unshift({
                 CategoryId: -1,
@@ -44,7 +44,7 @@ export function AdminEditVideo(){
 
     useEffect(()=>{
         LoadCategories();
-        axios.get(`http://127.0.0.1:5000/get-video/${params.id}`)
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${params.id}`)
         .then(response=>{
             setVideos(response.data);
         })
