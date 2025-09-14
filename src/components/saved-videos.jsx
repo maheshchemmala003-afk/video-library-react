@@ -30,7 +30,7 @@ export function SavedVideos() {
     const isLiked = video.isLiked || false;
 
     axios
-        .get(`http://127.0.0.1:5000/get-video/${video.VideoId}?action=${isLiked ? "decrement" : "increment"}`)
+        .get(`https://video-library-react-4.onrender.com/get-video/${video.VideoId}?action=${isLiked ? "decrement" : "increment"}`)
         .then(() => {
             dispatch(updateVideo({
                 VideoId: video.VideoId,
@@ -46,7 +46,7 @@ function handleDisLike(video) {
     const isDisliked = video.isDisliked || false;
 
     axios
-        .get(`http://127.0.0.1:5000/get-video/${video.VideoId}?action=${isDisliked ? "decrement" : "increment"}`)
+        .get(`https://video-library-react-4.onrender.com/get-video/${video.VideoId}?action=${isDisliked ? "decrement" : "increment"}`)
         .then(() => {
             dispatch(updateVideo({
                 VideoId: video.VideoId,
