@@ -7,7 +7,7 @@ export function AdminDash(){
     const [videos , setVideos] = useState([{VideoId:0, Title:'',Url:'' ,Description:'',Likes:0,Dislikes:0,Views:'',CategoryId:0,Comments:['']}])
 
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:5000/get-videos`)
+        axios.get(`https://video-library-react-4.onrender.com/get-videos`)
         .then(response=>{
             setVideos(response.data);
         })
