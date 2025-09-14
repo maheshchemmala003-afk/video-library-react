@@ -34,7 +34,7 @@ export function UserDashBoard() {
     const VideosCount = useSelector((state) => state.videos.VideosCount);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/get-videos`).then((response) => {
+        axios.get(`https://video-library-react-4.onrender.com/get-videos`).then((response) => {
             setVideos(response.data);
         });
     }, [VideosCount]);
@@ -45,7 +45,7 @@ export function UserDashBoard() {
     }
 
     function watchLaterClick(VideoId) {
-        axios.get(`http://127.0.0.1:5000/get-video/${VideoId}`).then((response) => {
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${VideoId}`).then((response) => {
             const video = response.data[0];
             alert(`${VideoId}\nVideo saved to Watch Later`);
             dispatch(addToViewLater(video));
@@ -53,7 +53,7 @@ export function UserDashBoard() {
     }
     function handleLike(video) {
         const isLiked = video.isLiked || false;
-        axios.get(`http://127.0.0.1:5000/get-video/${video.VideoId}`, {
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${video.VideoId}`, {
             VideoId: video.VideoId,
             action: isLiked ? "decrement" : "increment",
         }).then(() => {
@@ -69,7 +69,7 @@ export function UserDashBoard() {
 
     function handleDisLike(video) {
         const isDisliked = video.isDisliked || false;
-        axios.get(`http://127.0.0.1:5000/get-video/${video.VideoId}`, {
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${video.VideoId}`, {
             VideoId: video.VideoId,
             action: isDisliked ? "decrement" : "increment",
         }).then(() => {
@@ -98,7 +98,7 @@ export function UserDashBoard() {
     
         if (video === "") {
             // If search box is empty, reset to show all videos
-            axios.get(`http://127.0.0.1:5000/get-videos`)
+            axios.get(`https://video-library-react-4.onrender.com/get-videos`)
                 .then((response) => {
                     setVideos(response.data);
                 })
@@ -106,7 +106,7 @@ export function UserDashBoard() {
             return;
         }
     
-        axios.get(`http://127.0.0.1:5000/get-video/${video.Title}`)
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${video.Title}`)
             .then((response) => {
                 setVideos(response.data);  // Update state with search results
             })
