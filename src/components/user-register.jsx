@@ -53,7 +53,7 @@ export function UserRegister() {
 
     try {
       // ✅ Save user in backend
-      await axios.post(`http://127.0.0.1:5000/register-user`, user);
+      await axios.post(`https://video-library-react-4.onrender.com/register-user`, user);
 
       // ✅ Success message
       setSuccessMessage('Registration successful! ✅');
@@ -95,7 +95,7 @@ export function UserRegister() {
 
 const sendEmailOtp = async () => {
     try {
-        await axios.post('http://localhost:5000/send-email-otp', { email });
+        await axios.post('https://video-library-react-4.onrender.com/send-email-otp', { email });
         setEmailOtpSent(true);
         setEmailMessage('OTP sent to your email.');
         setEmailMessageColor('green');
@@ -113,7 +113,7 @@ const verifyEmailOtp = async () => {
         return;
     }
     try {
-        const res = await axios.post('http://localhost:5000/verify-email-otp', { email, otp: emailOtp });
+        const res = await axios.post('https://video-library-react-4.onrender.com/verify-email-otp', { email, otp: emailOtp });
         setEmailVerified(true);
         setEmailMessage(res.data.message);
         setEmailMessageColor('green');
@@ -125,7 +125,7 @@ const verifyEmailOtp = async () => {
 const sendMobileOtp = async () => {
     if (!emailVerified) return;
     try {
-        await axios.post('http://localhost:5000/send-mobile-otp', { mobile });
+        await axios.post('https://video-library-react-4.onrender.com/send-mobile-otp', { mobile });
         setMobileOtpSent(true);
         setMobileMessage('OTP sent to your mobile number.');
         setMobileMessageColor('green');
@@ -143,7 +143,7 @@ const verifyMobileOtp = async () => {
         return;
     }
     try {
-        const res = await axios.post('http://localhost:5000/verify-mobile-otp', { mobile, otp: mobileOtp });
+        const res = await axios.post('https://video-library-react-4.onrender.com/verify-mobile-otp', { mobile, otp: mobileOtp });
         setMobileVerified(true);
         setMobileMessage(res.data.message);
         setMobileMessageColor('green');
