@@ -10,14 +10,14 @@ export function AdminDelVideo(){
     let navigate = useNavigate();
 
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:5000/get-video/${params.id}`)
+        axios.get(`https://video-library-react-4.onrender.com/get-video/${params.id}`)
         .then(response=>{
             setVideos(response.data)
         })
     },[]);
 
     function handleDelClick(){
-        axios.delete(`http://127.0.0.1:5000/delete-video/${params.id}`)
+        axios.delete(`https://video-library-react-4.onrender.com/delete-video/${params.id}`)
         navigate('/admin-dash');
     }
 
